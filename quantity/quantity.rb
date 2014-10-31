@@ -3,13 +3,8 @@
 require_relative 'unit'
 
 # Undestands a particular amount
-class Quantity
-  attr_reader :amount, :unit
+class Quantity < Struct.new(:amount, :unit)
   protected :amount, :unit
-
-  def initialize(amount, unit)
-    @amount, @unit = amount, unit
-  end
 
   def ==(other)
     return true if self.equal? other

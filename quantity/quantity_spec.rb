@@ -7,19 +7,15 @@ require_relative 'quantity'
 RSpec.describe Quantity do
 
   it "should understand equality of same unit" do
-    expect(Quantity.new(3, Unit::TABLESPOON))
-        .to eq(Quantity.new(3, Unit::TABLESPOON))
-    expect(Quantity.new(3, Unit::TABLESPOON)).not_to eq(Object.new)
-    expect(Quantity.new(3, Unit::TABLESPOON)).not_to eq(nil)
+    expect(3.tablespoons).to eq(3.tablespoons)
+    expect(3.tablespoons).not_to eq(Object.new)
+    expect(3.tablespoons).not_to eq(nil)
   end
 
   it 'should understand equality across different units' do
-    expect(Quantity.new(1, Unit::TABLESPOON))
-        .to eq(Quantity.new(3, Unit::TEASPOON))
-    expect(Quantity.new(0.5, Unit::GALLON))
-        .to eq(Quantity.new(8, Unit::CUP))
-    expect(Quantity.new(8, Unit::CUP))
-        .to eq(Quantity.new(0.5, Unit::GALLON))
+    expect(1.tablespoons).to eq(3.teaspoons)
+    expect(0.5.gallons).to eq(8.cups)
+    expect(8.cups).to eq(0.5.gallons)
   end
 
   it 'should prohibit creation of new Units' do
