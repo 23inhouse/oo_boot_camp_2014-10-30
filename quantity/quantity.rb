@@ -24,8 +24,7 @@ class Quantity < Struct.new(:amount, :unit)
 
   private
 
-    def convertedAmount(other)
+    def converted_amount(other)
       self.unit.convertedAmountFrom(other.amount, other.unit)
     end
-
 end

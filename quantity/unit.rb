@@ -13,7 +13,7 @@ class Unit
     create_numeric_method(plural_name)
   end
 
-  def convertedAmountFrom(other_amount, other)
+  def converted_amount_from(other_amount, other)
     other_amount * other.base_unit_amount / self.base_unit_amount
   end
 
@@ -37,5 +37,4 @@ class Unit
   gallon = Unit.new(:gallons, 4, quart)
 
   private_class_method :new
-
 end
