@@ -1,5 +1,7 @@
 # Copyright 2014 by Fred George. May be copied with this notice, but not used in classroom training.
 
+require_relative 'quantity'
+
 # Undestands a particular metric
 class Unit
   attr_reader :base_unit_amount

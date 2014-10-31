@@ -1,8 +1,6 @@
 # Copyright 2014 by Fred George. May be copied with this notice, but not used in classroom training.
 
-require_relative 'unit'
-
-# Undestands a particular amount
+# Undestands a particular measurement
 class Quantity < Struct.new(:amount, :unit)
   protected :amount, :unit
 
@@ -12,13 +10,22 @@ class Quantity < Struct.new(:amount, :unit)
     self.amount == convertedAmount(other)
   end
 
+  def -@
+    Quantity.new(-amount, unit)
+  end
+
+  def +(other)
+    Quantity.new(self.amount + convertedAmount(other), self.unit)
+  end
+
+  def -(other)
+    self + (-other)
+  end
+
   private
 
     def convertedAmount(other)
       self.unit.convertedAmountFrom(other.amount, other.unit)
     end
 
-  TEASPOON = Object.new
-  TABLESPOON = Object.new
-  OUNCE = Object.new
 end

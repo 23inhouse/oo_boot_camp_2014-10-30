@@ -1,7 +1,7 @@
 # Copyright 2014 by Fred George. May be copied with this notice, but not used in classroom training.
 
 require 'rspec'
-require_relative 'quantity'
+require_relative 'unit'
 
 # Confirms Quantity operates correctly
 RSpec.describe Quantity do
@@ -20,6 +20,12 @@ RSpec.describe Quantity do
 
   it 'should prohibit creation of new Units' do
     expect { Unit.new }.to raise_error(NoMethodError)
+  end
+
+  it 'should support arithmetic' do
+    expect(-(2.tablespoons)).to eq(-2.tablespoons)
+    expect(7.tablespoons + 3.teaspoons).to eq(0.5.cups)
+    expect(0.5.cups - 3.teaspoons).to eq(7.tablespoons)
   end
 
 end
