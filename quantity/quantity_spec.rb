@@ -5,6 +5,7 @@ require_relative 'quantity'
 
 # Confirms Quantity operates correctly
 RSpec.describe Quantity do
+
   it "should understand equality of same unit" do
     expect(Quantity.new(3, Unit::TABLESPOON))
         .to eq(Quantity.new(3, Unit::TABLESPOON))
@@ -20,4 +21,9 @@ RSpec.describe Quantity do
     expect(Quantity.new(8, Unit::CUP))
         .to eq(Quantity.new(0.5, Unit::GALLON))
   end
+
+  it 'should prohibit creation of new Units' do
+    expect { Unit.new }.to raise_error(NoMethodError)
+  end
+
 end

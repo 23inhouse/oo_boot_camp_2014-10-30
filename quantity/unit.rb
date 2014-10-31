@@ -21,4 +21,7 @@ class Unit
   PINT = Unit.new(2, CUP)
   QUART = Unit.new(2, PINT)
   GALLON = Unit.new(4, QUART)
+
+  private_class_method :new
+
 end
